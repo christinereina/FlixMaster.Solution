@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model FlixMaster.Models.Showing
+
+<h1>Add a new Showing</h1>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.ShowingDate)
+  @Html.TextBoxFor(model => model.ShowingDate, new { @type="date", @class="form-control", required="required"})
+
+  @Html.LabelFor(model => model.ShowingTime)
+  @Html.TextBoxFor(model => model.ShowingTime, new { @type="time", @class="form-control", required="required"})
+
+  @Html.Label("Select Movie")
+  @Html.DropDownList("Title")
+
+  @Html.Label("Select Rating")
+  @Html.DropDownList("Rating")
+
+  <button type="submit" class="btn btn-default">Add a Showtime</button>
+}

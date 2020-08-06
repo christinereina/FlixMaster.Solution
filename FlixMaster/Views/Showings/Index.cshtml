@@ -1,0 +1,41 @@
+@{
+  Layout = "_Layout";
+}
+
+@using FlixMaster.Models;
+@model List<FlixMaster.Models.Showing>;
+
+<h1>Showings</h1>
+@if (@Model.Count == 0)
+{
+  <h2> No Movie Showings just yet!</h2><br>
+}
+else
+{
+  <table class="table table-striped table-hover ">
+    <thead>
+      <tr>
+        <th>Movie Title</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Movie Rating</th>
+      </tr>
+    </thead>
+  @foreach (Showing showing in Model)
+
+  {
+    <tbody>
+    <tr>
+    <td></td>
+    <td>@Html.ActionLink($"{showing.ShowingDate} ", "Details", new {id = showing.ShowingId})
+    </td>
+    <td>@Html.ActionLink($"{showing.ShowingTime}", "Details", new {id = showing.ShowingId})
+    </td>
+      </tr>
+    </tbody>
+  }
+  </table>
+}
+
+<h4>@Html.ActionLink("Add a new Showing", "Create")</h4>
+<h4>@Html.ActionLink("Home", "Index", "Home")</h4>
