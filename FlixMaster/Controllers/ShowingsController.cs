@@ -15,14 +15,18 @@ namespace FlixMaster.Controllers
     {
     _db = db;
     }
-    public ActionResult Index()
+    public ActionResult Index(int id)
     {
-      return View(_db.Showings.ToList());
+      var thisShowing = _db.Showings
+      .Include(showing => showing.Movies)
+      .ThenInclude(join => join.Movie)
+      .FirstOrDefault(showing => showing.ShowingId == id);
+      return View(thisShowing);
     }
 
     public ActionResult Create()
     {
-      ViewBag.Title = new SelectList (_db.Movies, "MovieId", "Title"); //MovieID associates with specific instance of movie - title associates with that specific field
+      ViewBag.MovieId = new SelectList (_db.Movies, "MovieId", "Title"); //MovieID associates with specific instance of movie - title associates with that specific field
       ViewBag.Rating = new SelectList (_db.Movies, "MovieId", "Rating");
       return View();
     }

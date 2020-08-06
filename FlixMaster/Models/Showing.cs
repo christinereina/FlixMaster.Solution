@@ -17,6 +17,7 @@ namespace FlixMaster.Models
 
     [DisplayName("Time:")]
     public DateTime ShowingTime { get; set; }
+
     public virtual ICollection<MovieShowing> Movies { get; set; }
   }
 }

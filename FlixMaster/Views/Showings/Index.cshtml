@@ -3,7 +3,7 @@
 }
 
 @using FlixMaster.Models;
-@model List<FlixMaster.Models.Showing>;
+@model FlixMaster.Models.Showing;
 
 <h1>Showings</h1>
 @if (@Model.Count == 0)
@@ -21,17 +21,19 @@ else
         <th>Movie Rating</th>
       </tr>
     </thead>
-  @foreach (Showing showing in Model)
 
+  @* @foreach (Showing showing in Model) *@
+  
+  @foreach (var join in Model.Movies)
   {
     <tbody>
     <tr>
-    <td></td>
-    <td>@Html.ActionLink($"{showing.ShowingDate.ToShortDateString()}", "Details", new {id = showing.ShowingId})
+    <td>@join.Movie.Title</td>
+    <td>@Html.ActionLink($"{join.Showing.ShowingDate.ToShortDateString()}", "Details", new {id = join.ShowingId})
     </td>
-    <td>@Html.ActionLink($"{showing.ShowingTime.ToShortTimeString()}", "Details", new {id = showing.ShowingId})
+    <td>@Html.ActionLink($"{join.showing.ShowingTime.ToShortTimeString()}", "Details", new {id = join.showing.ShowingId})
     </td>
-    <td></td>
+    <td>@Html.ActionLink($"{ViewBag.MovieRating}", "Details", new {id = join.movie.MovieRating})</td>
       </tr>
     </tbody>
   }

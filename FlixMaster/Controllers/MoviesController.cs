@@ -18,12 +18,16 @@ namespace FlixMaster.Controllers
 
     public ActionResult Index ()
     {
-      return View (_db.Movies.ToList());
+      var thisMovie = _db.Movies
+      .Include(movie => movie.Showings)
+      .ThenInclude(join => join.Showing)
+      .FirstOrDefault(movie => movie.MovieId == id);
+      return View(thisMovie);
     }
 
     public ActionResult Create ()
     {
-      ViewBag.ShowingId = new SelectList(_db.Showings, "ShowingsId", "ShowingDate");
+      ViewBag.ShowingId = new SelectList(_db.Showings, "ShowingId", "ShowingDate");
       return View();
     }
 

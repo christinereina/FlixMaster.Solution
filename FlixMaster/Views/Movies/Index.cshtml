@@ -14,8 +14,8 @@
 
 @foreach (Movie movie in Model)
 {
-  @Html.ActionLink($"{movie.Title}", "Details", new { id = movie.MovieId})
+  @Html.ActionLink($"{movie.Title}", "Details", new { id = movie.MovieId})<br>
 }
 
-<p>@Html.ActionLink("Add new Movie", "Create")</p>
+<br><p>@Html.ActionLink("Add new Movie", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
