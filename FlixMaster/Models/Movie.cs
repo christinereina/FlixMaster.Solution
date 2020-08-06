@@ -16,7 +16,7 @@ namespace FlixMaster.Models
     public string Genre {get; set;}
     public string Rating {get; set; }
 
-    public List<string> Actors = new List<string>();
+    public List<string> Actors {get; set; } = new List<string>();
 
     public virtual ICollection<MovieShowing> Showings {get; }
 

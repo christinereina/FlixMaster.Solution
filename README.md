@@ -49,7 +49,61 @@ A) Create the Database in MySQL Workbench
 2. You should see an icon in the upper left that looks like a little piece of paper with the letters `SQL` and a + sign. Hover over the icon and confirm that this is the 'create a new SQL tab for executing queries' icon. Once confirmed, double click the icon.
 3. Enter the following (excluding the ``` at the beginning and end of the code) text into the window for the SQL File tab.
 
-``` SQL HERE ```
+#### To Import the Database (As Taken From LearnHowToProgram.com)
+
+### In the Navigator > Administration window, select Data Import/Restore.
+### In Import Options select Import from Self-Contained File.
+### Navigate to the file we just created.
+### Under Default Schema to be Imported To, select the New button.
+### Enter the name of your database with _test appended to the end.
+### In this case to_do_list_test.
+### Click Ok.
+### Click Start Import.
+### Reopen the Navigator > Schemas tab. Right click and select Refresh All. Your new test database will appear.
+
+# SQL Schema Query #
+
+``` 
+CREATE DATABASE IF NOT EXISTS flix_master; USE flix_master;
+
+DROP TABLE IF EXISTS `__efmigrationshistory`;
+CREATE TABLE `__efmigrationshistory` (
+  `MigrationId` varchar(95) NOT NULL,
+  `ProductVersion` varchar(32) NOT NULL,
+  PRIMARY KEY (`MigrationId`)
+) 
+
+DROP TABLE IF EXISTS `movies`;
+CREATE TABLE `movies` (
+  `MovieId` int NOT NULL AUTO_INCREMENT,
+  `Title` longtext,
+  `Description` longtext,
+  `Genre` longtext,
+  `Rating` longtext,
+  PRIMARY KEY (`MovieId`)
+)
+
+DROP TABLE IF EXISTS `movieshowing`;
+CREATE TABLE `movieshowing` (
+  `MovieShowingId` int NOT NULL AUTO_INCREMENT,
+  `MovieId` int NOT NULL,
+  `ShowingId` int NOT NULL,
+  PRIMARY KEY (`MovieShowingId`),
+  KEY `IX_MovieShowing_MovieId` (`MovieId`),
+  KEY `IX_MovieShowing_ShowingId` (`ShowingId`),
+  CONSTRAINT `FK_MovieShowing_Movies_MovieId` FOREIGN KEY (`MovieId`) REFERENCES `movies` (`MovieId`) ON DELETE CASCADE,
+  CONSTRAINT `FK_MovieShowing_Showings_ShowingId` FOREIGN KEY (`ShowingId`) REFERENCES `showings` (`ShowingId`) ON DELETE CASCADE
+) 
+
+DROP TABLE IF EXISTS `showings`;
+CREATE TABLE `showings` (
+  `ShowingId` int NOT NULL AUTO_INCREMENT,
+  `ShowingDate` datetime(6) NOT NULL,
+  `ShowingTime` datetime(6) NOT NULL,
+  PRIMARY KEY (`ShowingId`)
+) 
+
+ ```
 
 4. Click 'execute' (this may appear as a lightening bolt icon).
 
