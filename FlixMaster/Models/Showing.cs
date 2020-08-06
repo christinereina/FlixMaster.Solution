@@ -6,7 +6,8 @@ namespace FlixMaster.Models
 {
   public class Showing
   {
-    public Showing() {
+    public Showing() 
+    {
       this.Movies = new HashSet<MovieShowing>();
     }
     public int ShowingId { get; set; }
