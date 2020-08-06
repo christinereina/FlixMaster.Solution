@@ -27,10 +27,11 @@ else
     <tbody>
     <tr>
     <td></td>
-    <td>@Html.ActionLink($"{showing.ShowingDate} ", "Details", new {id = showing.ShowingId})
+    <td>@Html.ActionLink($"{showing.ShowingDate.ToShortDateString()}", "Details", new {id = showing.ShowingId})
     </td>
-    <td>@Html.ActionLink($"{showing.ShowingTime}", "Details", new {id = showing.ShowingId})
+    <td>@Html.ActionLink($"{showing.ShowingTime.ToShortTimeString()}", "Details", new {id = showing.ShowingId})
     </td>
+    <td></td>
       </tr>
     </tbody>
   }

@@ -8,10 +8,10 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.ShowingDate)
-  @Html.TextBoxFor(model => model.ShowingDate, new { @type="date", @class="form-control", required="required"})
+  @Html.TextBoxFor(model => model.ShowingDate, new { @class="form-control", required="required"})
 
   @Html.LabelFor(model => model.ShowingTime)
-  @Html.TextBoxFor(model => model.ShowingTime, new { @type="time", @class="form-control", required="required"})
+  @Html.TextBoxFor(model => model.ShowingTime, new { @class="form-control", required="required"})
 
   @Html.Label("Select Movie")
   @Html.DropDownList("Title")

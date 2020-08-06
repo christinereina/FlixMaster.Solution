@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+@model FlixMaster.Models.Movie;
+
+<h1>Add a Movie</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Title) <br>
+  @Html.TextBoxFor(model => model.Title) <br>
+
+  @Html.LabelFor(model => model.Description) <br>
+  @Html.TextBoxFor(model => model.Description) <br>
+  
+  @Html.LabelFor(model => model.Genre) <br>
+  @Html.TextBoxFor(model => model.Genre) <br>
+
+  @Html.LabelFor(model => model.Rating) <br>
+  @Html.TextBoxFor(model => model.Rating) <br>
+  <br>
+
+  @Html.Label("Select Showing")
+  @Html.DropDownList("ShowingId")
+
+  <input type="submit" value="Add Movie" /><br>
+}
+
+<p>@Html.ActionLink("Show all Movies", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
