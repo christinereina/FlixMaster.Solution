@@ -1,8 +1,8 @@
 # <h1 align = "center"> Flix Master
   
-#### <h2 align = "center"> C# ASP.NET Core MVC and EF Core practice for Epicodus, 08.05.2020
+#### <h4 align = "center"> C# ASP.NET Core MVC and EF Core practice for Epicodus, 08.05.2020
 
-#### <h2 align = "center"> By **Brittany Lindgren, Christine Augustine & Teresa Rosinski**
+#### <h4 align = "center"> By **Brittany Lindgren, Christine Augustine & Teresa Rosinski**
 
 
 ## Description
