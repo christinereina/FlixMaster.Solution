@@ -1,5 +1,5 @@
-# _Flix Master_
-
+# <h1 align = "center"> Flix Master
+  
 #### _C# ASP.NET Core MVC and EF Core practice for Epicodus, 08.05.2020_
 
 #### By _**Brittany Lindgren, Christine Augustine & Teresa Rosinski**_
@@ -8,19 +8,6 @@
 ## Description
 
 _Welcome to our Indie Movie Theater app. Administrators can update movie listings and showtimes and customers can search showtimes to see what movies are playing._ 
-
-## Specifications
-
-| Behavior   |   Input   |  Output |  Met? (Y/N)  |
-|----------|:-------------:|------:|-----------:|
-|  |  |  |  |
-
-
-## Stretch Goals
-| Behavior   |   Input   |  Output |  Met? (Y/N)  |
-|----------|:-------------:|------:|-----------:|
-
-
 
 ## Setup/Installation Requirements
 
