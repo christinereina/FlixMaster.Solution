@@ -15,15 +15,14 @@ namespace FlixMaster.Controllers
     {
     _db = db;
     }
-    public ActionResult Index(int id)
+    public ActionResult Index()
     {
-      var thisShowing = _db.Showings
-      .Include(showing => showing.Movies)
-      .ThenInclude(join => join.Movie)
-      .FirstOrDefault(showing => showing.ShowingId == id);
-      return View(thisShowing);
+      var model = _db.MovieShowing.ToList();
+      ViewBag.Showings = _db.Showings.ToList();
+      ViewBag.Movies = _db.Movies.ToList();
+      return View(model);
     }
-
+    
     public ActionResult Create()
     {
       ViewBag.MovieId = new SelectList (_db.Movies, "MovieId", "Title"); //MovieID associates with specific instance of movie - title associates with that specific field

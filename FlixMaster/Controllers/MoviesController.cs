@@ -16,7 +16,7 @@ namespace FlixMaster.Controllers
       _db = db; 
     }
 
-    public ActionResult Index ()
+    public ActionResult Index (int id)
     {
       var thisMovie = _db.Movies
       .Include(movie => movie.Showings)
