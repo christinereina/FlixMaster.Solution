@@ -1,4 +1,4 @@
-# _Flix Master_
+# <h1 align = "center"> Flix Master
 
 #### _C# ASP.NET Core MVC and EF Core practice for Epicodus, 08.05.2020_
 
